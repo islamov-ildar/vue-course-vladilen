@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="theme.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container pt-5" id="app">
+        <div class="card">
+           <div class="center">
+               <h1 :style="{color: inputValue.length > 5 ? 'darkred' : 'darkblue'}">{{ title }}</h1>
+               <input type="text"
+               :placeholder="placeholderString"
+               v-model="inputValue"
+               v-on:keypress.enter="addNewNote">
+               <!-- <h2>{{ inputValue }}</h2> -->
+               <button class="btn" v-on:click="addNewNote">Add</button>
+           </div>
+            <hr>
+            <ul class="list" v-if="notes.length">
+                <li class="list-item" v-for="(myNote, idx) in notes">
+                    <span :class="myNote.length > 5 ? 'primary' : 'bold'">
+                        {{ toUpperCase(myNote) }}
+                    </span>
+                    <button class="btn danger" v-on:click="removeNote(idx, $event)">Delete</button>
+                </li>
+                <!-- <li class="list-item">
+                    {{ notes[1] }}
+                </li> -->
+                <hr>
+                <li>
+                    <strong>Общее количество: {{ notes.length }}</strong> | Double: {{ doubleCountCmpt }}
+                </li>
+            </ul>
+            <div v-else>No notes. Please add once</div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+</body>
+</html>
