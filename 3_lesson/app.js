@@ -8,7 +8,7 @@ Vue.createApp({
         lastName: "Islamov",
         age: 32,
       },
-      items: [1, 2],
+      items: [1, 2, "d", 4, 5, 6],
     };
   },
   computed: {
@@ -18,9 +18,16 @@ Vue.createApp({
   },
   methods: {
     addItem(event) {
-      console.log(event.key);
+      console.log(this.$refs.myInput.value);
       this.items.unshift(this.$refs.myInput.value);
       this.$refs.myInput.value = "";
+      console.log(this.items);
+    },
+    remove(i) {
+      this.items.splice(i, 1);
+    },
+    log(item) {
+      console.log(item);
     },
   },
 }).mount("#app");
