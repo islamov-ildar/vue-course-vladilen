@@ -1,0 +1,20 @@
+{
+  "name": "06-vue-components",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "postcss": "^8.4.27",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.0.0",
+    "autoprefixer": "^8.6.5"
+  }
+}
