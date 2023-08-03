@@ -4,9 +4,10 @@
     <h3>
       {{ title }}
     </h3>
-    <button class="btn" @click="open">
-      {{ isNewsOpen ? "Close" : "Open" }}
-    </button>
+    <AppBtn @action="open"> {{ isNewsOpen ? "Close" : "Open" }}</AppBtn>
+    <AppBtn v-if="isRead" color="danger" @action="markUnread"
+      >Mark us unread</AppBtn
+    >
     <div v-if="isNewsOpen">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ex,
@@ -14,14 +15,16 @@
         soluta perferendis, veritatis, odit voluptate ab maiores at maxime
         atque!
       </p>
-      <button v-if="!isRead" class="btn primary" @click="readNews">
-        Read news
-      </button>
+      <AppBtn v-if="!isRead" @action="readNews">Read news</AppBtn>
+      <AppNewsList></AppNewsList>
     </div>
   </div>
 </template>
 
 <script>
+import AppBtn from "./AppBtn.vue";
+import AppNewsList from "./AppNewsList.vue";
+
 export default {
   name: "TheNews",
   props: {
@@ -44,7 +47,7 @@ export default {
       required: true,
     },
   },
-  components: {},
+  components: { AppBtn, AppNewsList },
   emits: {
     openNews(num) {
       if (num) {
@@ -53,7 +56,14 @@ export default {
       console.warn("No data in openNews");
       return false;
     },
-    newsReaded: null,
+    newsReaded(id) {
+      if (!id) {
+        console.error("Id was missing");
+        return false;
+      }
+      return true;
+    },
+    markUnread: null,
   },
   data() {
     return {
@@ -71,6 +81,12 @@ export default {
       if (!this.isRead) {
         this.$emit("newsReaded", this.id);
         // this.isNewsRead = true;
+      }
+    },
+    markUnread() {
+      console.log(123);
+      if (this.isRead) {
+        this.$emit("markUnread", this.id);
       }
     },
   },

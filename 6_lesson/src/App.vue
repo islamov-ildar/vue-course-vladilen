@@ -1,52 +1,58 @@
 <template>
   <div class="container pt-1">
     <div class="card">
-      <h2>ActualNews {{ now }}</h2>
-      <div>Has opened: {{ openRate }}</div>
-      <div>Has readed: {{ readRate }}</div>
+      <async-component />
+      <h1>Dynamic and asynchronous components</h1>
+      <app-btn ref="myBtn" @action="active = 'one'" :color="oneColor"
+        >one</app-btn
+      >
+      <app-btn @action="active = 'two'" :color="twoColor">two</app-btn>
     </div>
-
-    <TheNews
-      v-for="item in news"
-      :key="id"
-      :title="item.title"
-      :id="item.id"
-      :isOpen="item.isOpen"
-      :isRead="item.wasRead"
-      @openNews="openNews"
-      @newsReaded="markAsRead"
-    />
+    <!-- <AppTextOne v-if="active === 'one'" />
+    <AppTextTwo v-else /> -->
+    <keep-alive>
+      <component :is="componentName"></component>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import TheNews from "./TheNews.vue";
+import AppBtn from "./AppBtn.vue";
+import AppTextOne from "./AppTextOne.vue";
+import AppTextTwo from "./AppTextTwo.vue";
 
 export default {
   name: "App",
   data() {
     return {
-      now: new Date().toLocaleDateString(),
-      news: [
-        { title: "PussyDestroyer-1", id: 100, isOpen: false, wasRead: false },
-        { title: "PussyDestroyer-2", id: 200, isOpen: false, wasRead: false },
-      ],
-      openRate: 0,
-      readRate: 0,
+      active: "one",
     };
   },
-  components: { TheNews },
-  methods: {
-    openNews(data) {
-      console.log(data);
-      this.openRate++;
+  components: { AppBtn, AppTextOne, AppTextTwo },
+  mounted() {
+    setTimeout(() => {
+      this.componentName = "asd";
+    }, 1500);
+
+    console.log(this.$refs.myBtn);
+    this.$refs.myBtn.btnLog();
+  },
+  computed: {
+    componentName: {
+      // return this.active === "one" ? "AppTextOne" : "AppTextTwo";
+      // return "app-text-" + this.active;
+      get() {
+        return "app-text-" + this.active;
+      },
+      set(value) {
+        console.log("set", value);
+      },
     },
-    markAsRead(id) {
-      console.log(id);
-      // this.news = this.news.map()
-      const idx = this.news.findIndex((item) => item.id === id);
-      this.news[idx].wasRead = true;
-      this.readRate++;
+    oneColor() {
+      return this.active === "one" ? "primary" : "";
+    },
+    twoColor() {
+      return this.active === "two" ? "primary" : "";
     },
   },
 };
