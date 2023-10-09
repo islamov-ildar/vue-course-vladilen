@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff1f1292-44bc-47e2-b92a-50dc67fdcca8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/7_lesson/src/AppInput.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/src/AppInput.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/8_lesson/src/theme.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7_lesson/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/7_lesson/src/App.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Projects/vue3-course/7_lesson",
+    "last_opened_file_path": "D:/Projects/vue3-course",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +69,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\vue3-course" />
+      <recent name="D:\Projects\vue3-course\8_lesson" />
       <recent name="D:\Projects\vue3-course\7_lesson" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -88,7 +98,12 @@
       <updated>1690264854263</updated>
       <workItem from="1690264855468" duration="4201000" />
       <workItem from="1691260996838" duration="3781000" />
-      <workItem from="1692162800371" duration="5660000" />
+      <workItem from="1692162800371" duration="6674000" />
+      <workItem from="1693244094238" duration="494000" />
+      <workItem from="1693808123312" duration="665000" />
+      <workItem from="1693855668270" duration="584000" />
+      <workItem from="1695031218485" duration="1347000" />
+      <workItem from="1696825843348" duration="3141000" />
     </task>
     <servers />
   </component>
